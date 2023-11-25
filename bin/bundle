@@ -10,6 +10,9 @@
 
 require 'rubygems'
 
+# rubocop:disable Layout/LineLength
+# rubocop:disable Metrics/PerceivedComplexity
+
 m = Module.new do
   module_function
 
@@ -112,6 +115,9 @@ m = Module.new do
     e
   end
 end
+
+# rubocop:enable Layout/LineLength
+# rubocop:enable Metrics/PerceivedComplexity
 
 m.load_bundler!
 
