@@ -6,7 +6,6 @@ gem "rails", "~> 7.1.2"
 gem "pg", "~> 1.1"
 gem 'rswag'
 
-gem "sprockets-rails"
 gem "puma", ">= 5.0"
 gem "bootsnap", require: false
 
