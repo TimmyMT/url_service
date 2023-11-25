@@ -32,9 +32,6 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
-      matrix:
-        ci_node_total: [1]
-        ci_node_index: [0]
     services:
       postgresql:
         image: postgres:11
