@@ -1,24 +1,25 @@
-# README
+# URL_SERVICE
+Реализовать сервис сокращения ссылок.
+Данный сервис должен реализовывать 3 запроса:
+POST /urls который возвращает короткий url
+GET /urls/:short_url который возвращает длинный URL и увеличивает счетчик запросов на 1
+GET /urls/:short_url/stats который возвращает количество переходов по URL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Установка приложения
+`docker-compose build`
 
-Things you may want to cover:
+## Перед запуском
+Заходим в контейнер и создаём базу данных
 
-* Ruby version
+`sudo docker-compose run --rm web bash`
 
-* System dependencies
+`rails db:create db:migrate`
 
-* Configuration
+## Запуск
+`docker-compose up`
 
-* Database creation
+## Документация эндпоинтов
+`/api-docs/index.html`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Используемые библитеки
+* RSpec + Rswag
