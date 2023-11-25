@@ -1,0 +1,77 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/urls":
+    post:
+      summary: returns short_url
+      tags:
+      - Urls
+      responses:
+        '200':
+          description: render json with short url
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  short_url:
+                    type: string
+                required:
+                - short_url
+  "/urls/short_url":
+    get:
+      summary: return long_url
+      tags:
+      - Urls
+      responses:
+        '200':
+          description: render json with long url
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  long_url:
+                    type: string
+                required:
+                - long_url
+  "/urls/short_url/stats":
+    get:
+      summary: return requests_count
+      tags:
+      - Urls
+      responses:
+        '200':
+          description: render json with requests count
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requests_count:
+                    type: integer
+                required:
+                - requests_count
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
+components:
+  schemas:
+    request_counter:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+        value:
+          type: integer
+      required:
+      - id
+      - date
+      - value
