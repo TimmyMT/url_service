@@ -4,7 +4,7 @@ on: [push, pull_request]
 env:
   BUNDLER_VERSION: 2.3.11
   RAILS_ENV: test
-  RUBY_VERSION: 2.7.4
+  RUBY_VERSION: 3.1.4
   PGUSER: postgres
   PGPASSWORD: password
   POSTGRES_HOST: localhost
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.4
+          ruby-version: 3.1.4
           bundler-cache: true
 
       - name: Copy database config file
@@ -51,7 +51,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.4
+          ruby-version: 3.1.4
           bundler-cache: true
 
       - name: Rspec
