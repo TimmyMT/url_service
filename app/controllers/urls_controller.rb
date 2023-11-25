@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UrlsController < ApplicationController
-  before_action :set_current_counter, only: [:short_url, :stats]
+  before_action :set_current_counter, only: %i[short_url stats]
 
   def create
     render json: { short_url: "#{base_url}/urls/short_url" }
@@ -18,7 +20,7 @@ class UrlsController < ApplicationController
   private
 
   def set_current_counter
-    date_today = Time.current.strftime("%F")
+    date_today = Time.current.strftime('%F')
     @request_counter = RequestCounter.find_or_create_by(date: date_today)
   end
 end

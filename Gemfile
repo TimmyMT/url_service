@@ -1,22 +1,25 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-ruby "3.1.4"
+source 'https://rubygems.org'
 
-gem "rails", "~> 7.1.2"
-gem "pg", "~> 1.1"
+ruby '3.1.4'
+
+gem 'pg', '~> 1.1'
+gem 'rails', '~> 7.1.2'
 gem 'rswag'
 
-gem "puma", ">= 5.0"
-gem "bootsnap", require: false
+gem 'bootsnap', require: false
+gem 'puma', '>= 5.0'
+gem 'rubocop', require: false
 
 group :development, :test do
-  gem 'pry-rails'
   gem 'factory_bot_rails'
+  gem 'pry-rails'
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'database_cleaner'
+  gem 'rspec-rails'
 end
 
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem 'tzinfo-data', platforms: %i[windows jruby]

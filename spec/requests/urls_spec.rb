@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'swagger_helper'
 
 describe 'urls API' do
@@ -6,15 +8,15 @@ describe 'urls API' do
       tags 'Urls'
       produces 'application/json'
 
-      response '200', "render json with short url" do
+      response '200', 'render json with short url' do
         schema type: :object,
-          properties: {
-            short_url: { type: :string }
-          },
-          required: [ 'short_url' ]
+               properties: {
+                 short_url: { type: :string }
+               },
+               required: ['short_url']
 
         run_test! do
-          expect(response_body).to eq("short_url" => "www.example.com/urls/short_url")
+          expect(response_body).to eq('short_url' => 'www.example.com/urls/short_url')
         end
       end
     end
@@ -29,17 +31,17 @@ describe 'urls API' do
         expect(RequestCounter.count).to eq(0)
       end
 
-      response '200', "render json with long url" do
+      response '200', 'render json with long url' do
         schema type: :object,
-          properties: {
-            long_url: { type: :string }
-          },
-          required: [ 'long_url' ]
+               properties: {
+                 long_url: { type: :string }
+               },
+               required: ['long_url']
 
         run_test! do
           expect(RequestCounter.count).to eq(1)
           expect(RequestCounter.last.value).to eq(1)
-          expect(response_body).to eq("long_url" => "www.example.com/urls/short_url/stats")
+          expect(response_body).to eq('long_url' => 'www.example.com/urls/short_url/stats')
         end
       end
     end
@@ -54,17 +56,17 @@ describe 'urls API' do
         expect(RequestCounter.count).to eq(0)
       end
 
-      response '200', "render json with requests count" do
+      response '200', 'render json with requests count' do
         schema type: :object,
-          properties: {
-            requests_count: { type: :integer }
-          },
-          required: [ 'requests_count' ]
+               properties: {
+                 requests_count: { type: :integer }
+               },
+               required: ['requests_count']
 
         run_test! do
           expect(RequestCounter.count).to eq(1)
           expect(RequestCounter.last.value).to eq(0)
-          expect(response_body).to eq("requests_count" => 0)
+          expect(response_body).to eq('requests_count' => 0)
         end
       end
     end

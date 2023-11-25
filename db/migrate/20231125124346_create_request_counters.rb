@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRequestCounters < ActiveRecord::Migration[7.1]
   def change
     create_table :request_counters do |t|

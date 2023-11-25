@@ -26,6 +26,26 @@ jobs:
       - name: Copy database config file
         run: cp config/database.yml.ci config/database.yml
 
+  rubocop:
+    needs:
+      - initialization
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.4
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Run RuboCop
+        run: bundle exec rubocop
+
   rspec:
     needs:
       - initialization
